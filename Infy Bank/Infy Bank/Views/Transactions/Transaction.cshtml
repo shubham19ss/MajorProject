@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "Transaction";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Content/Transaction.js"></script>
+<div class="container-fluid" style="margin-top:50px">
+    <div class="align-content-center">
+        <div class="row flex-fill">
+            @{ 
+                if (Session["Role"].ToString() != "cus")
+                {
+            <div class="col-md-2">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Deposit" id="depositbutton" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; margin:10px; width:150px;" value="Withdraw" id="withdrawbutton" />
+            </div>
+                         
+            <div class="col-md-2">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Fund Transfer" id="transferbutton" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Balance Enquiry" id="balancebutton" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Mini Statement" id="statementbutton" />
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:180px;" value="Customised Statement" id="cstatementbutton" />
+            </div>
+                }
+                else
+                {
+                    <div class="col-md-3">
+                        <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Fund Transfer" id="transferbutton" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Balance Enquiry" id="balancebutton" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:150px;" value="Mini Statement" id="statementbutton" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" class="bg-light" style="border-radius:5px;padding:10px;margin:10px; width:180px;" value="Customised Statement" id="cstatementbutton" />
+                    </div>
+                }
+            }   
+
+        </div>
+        <hr class="container-fluid"/>
+        <h3 class="text-success;" style="text-align:center"><p id="Feedback"></p></h3>
+        <div align="center" style="margin-top:10px;margin-bottom:10px;">
+            <form id="depositform" style="background-color:lightcyan;border-radius:5px;width:500px;padding:20px;">
+                <h3 align="center" class="text-success">Deposit Form</h3>
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="depositmessage"></P></h5>
+                <table>
+                    <tr>
+                        <td> Account No:</td>
+                        <td> <input type="text" id="accountno" required /></td>
+                    </tr>
+                    <tr>
+                        <td> Amount:</td>
+                        
+                        <td> <input type="text" id="amount" required /></td>
+                </tr>
+                    <tr>
+                        <td> Deposit Date:</td>
+                        <td>  <input type="datetime-local" id="depositdate" required /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Comments:</td>
+                        <td> <input type="text" id="comment" required /></td>
+                </table>
+                <input type="submit" id="depositsubmit" class="bg-primary text-center text-light" value="Submit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" value="Deposit"/>
+            </form>
+        </div>
+        <div align="center" style="margin-top:10px;margin-bottom:10px;">
+            <form id="withdrawform" style="background-color:lightcyan;border-radius:5px;width:500px;padding:20px;">
+                <h3 align="center" class="text-success">Withdraw Form</h3>
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="withdrawmessage"></P></h5>
+                <table>
+                    <tr>
+                        <td> Account No:</td>
+                        <td> <input type="text" id="waccountno" required /></td>
+                    </tr>
+                    <tr>
+                        <td> Amount:</td>
+
+                        <td> <input type="text" id="wamount" required /></td>
+
+                    <tr>
+                        <td> Deposit Date:</td>
+                        <td>  <input type="datetime-local" id="withdrawdate" required /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Comments:</td>
+                        <td> <input type="text" id="wcomment" required /></td>
+                </table>
+                <input type="submit" id="withdrawsubmit" class="bg-primary text-center text-light" value="Submit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" value="Withdraw" />
+            </form>
+        </div>
+        <div align="center" style="margin-top:10px;margin-bottom:10px;">
+            <form id="transferform" style="background-color:lightcyan;border-radius:5px;width:500px;padding:20px;">
+                <h3 align="center" class="text-success">Fund Transfer Form</h3>
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="transfermessage"></P></h5>
+                <table>
+                    <tr>
+                        <td> Source Account No:</td>
+                        <td> <input type="text" id="tsaccountno" required /></td>
+                    </tr>
+                    <tr>
+                        <td> Destination Account No:</td>
+                        <td> <input type="text" id="tdaccountno" required /></td>
+                    </tr>
+                    <tr>
+                        <td> Amount:</td>
+
+                        <td> <input type="text" id="tamount" required /></td>
+
+                    <tr>
+                        <td> Transfer Date:</td>
+                        <td>  <input type="datetime-local" id="tdrawdate" required /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Comments:</td>
+                        <td> <input type="text" id="tcomment" required /></td>
+                </table>
+                <input type="submit" id="transfersubmit" class="bg-primary text-center text-light" value="Submit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" value="Fund Transfer" />
+            </form>
+        </div>
+        <div align="center" style="margin-top:10px;">
+            <form id="balanceform" style="background-color:lightcyan;border-radius:5px;width:500px;">
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="balancemessage"></P></h5>
+                <table>
+                    <tr>
+                        <td>  Enter Account No:</td>
+
+                        <td> <input type="text" id="baccountno" required /></td>
+                        <td> <input type="button" value="submit" class="bg-primary text-light" style="width:100px; border-radius:7px;padding:10px" id="balancesubmit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div align="center" style="margin-top:10px;">
+            <form id="statementform" style="background-color:lightcyan;border-radius:5px;width:500px;">
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="statementmessage"></P></h5>
+                <table>
+                    <tr>
+                        <td>  Enter Account No:</td>
+
+                        <td> <input type="text" id="saccountno" required /></td>
+                        <td> <input type="button" value="submit" class="bg-primary text-light" style="width:100px; border-radius:7px;padding:10px" id="statementsubmit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div align="center" style="margin-top:10px;margin-bottom:20px;">
+            <form id="customisedform" style="background-color:lightcyan;border-radius:5px;width:500px;padding:20px;">
+                <h3 align="center" class="text-success">Customised Statement Form</h3>
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="customisedmessage"></P></h5>
+                <table>
+                    <tr>
+                        <td> Account No:</td>
+                        <td> <input type="text" id="caccountno" required /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>From Date:</td>
+                        <td>  <input type="date" id="fromdate" required /></td>
+                    </tr>
+                    <tr>
+                        <td> To Date:</td>
+                        <td>  <input type="date" id="todate" required /></td>
+                    </tr>
+                    
+                </table>
+                <input type="submit" id="customisedsubmit" class="bg-primary text-center text-light" value="Submit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" value="Submit" />
+            </form>
+        </div>
+        <div align="center" style="padding:20px;border-radius:5px;">
+            <form id="showstatement" style="padding:20px;width:800px;border:groove;border-radius:10px;border-color:darkgrey;">
+                <table border="1" id="transactiontable">
+                    <tr>
+                        <th>
+                            TransactionID
+                        </th>
+
+                        <th>
+                            Transaction Amount
+                        </th>
+                        <th>
+                            Transaction Type
+                        </th>
+
+
+                        <th>
+                            Transaction Date
+                        </th>
+
+
+                        <th>
+                            Transaction Comment
+                        </th>             
+
+                    </tr>
+
+                  
+                    <tbody>
+                       
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+
+
+</div>
+</div>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaboBankApp", "RaboBankApp\RaboBankApp.csproj", "{4F6C3482-EC1B-4B09-B764-38070D0DC820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaboWebApi", "RaboWebApi\RaboWebApi.csproj", "{8A4E71A2-E99A-4FA1-9AB0-9DC4CA7CD258}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaboMVC", "RaboMVC\RaboMVC.csproj", "{E8C60C7F-7602-42AD-8C62-FB3BF72668D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F6C3482-EC1B-4B09-B764-38070D0DC820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6C3482-EC1B-4B09-B764-38070D0DC820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6C3482-EC1B-4B09-B764-38070D0DC820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6C3482-EC1B-4B09-B764-38070D0DC820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A4E71A2-E99A-4FA1-9AB0-9DC4CA7CD258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A4E71A2-E99A-4FA1-9AB0-9DC4CA7CD258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A4E71A2-E99A-4FA1-9AB0-9DC4CA7CD258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A4E71A2-E99A-4FA1-9AB0-9DC4CA7CD258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C60C7F-7602-42AD-8C62-FB3BF72668D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C60C7F-7602-42AD-8C62-FB3BF72668D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C60C7F-7602-42AD-8C62-FB3BF72668D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C60C7F-7602-42AD-8C62-FB3BF72668D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

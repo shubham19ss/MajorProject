@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $("#ChangePass").click(function (e) {
+                e.preventDefault();
+                    var oldpass = $("#oldPassword").val();
+                    var newpass = $("#newPassword").val();
+                    var confirmpass = $("#confirmPassword").val();
+                    if (oldpass.length > 0 && newpass.length > 0 && confirmpass.length > 0) {
+                        if (newpass.trim() == confirmpass.trim()) {
+                            $.ajax({
+                                type: 'POST',
+                                url: "http://localhost:53532/Login/ChangePasswordAction",
+                                async: true,
+                                data: { 'OldPassword': oldpass, 'NewPassword': newpass },
+                                success: function (response) {
+                                    if (response == "success")
+                                        $("#succesmsg").html("Password changed Successfully")
+                                    else
+                                        $("#message").html(response)
+                                },
+
+                                error: function (result) {
+                                    //handle any errors      
+                                    alert(result)
+                                }
+                            });
+                        }
+                        else {
+                            $("#message").html("Password Mismatch!!")
+                        }
+                    }
+                    else
+                    {
+                        $("#message").html("Fill Out all Fields!!")
+                    }
+
+            });
+        });
+       
+    </script>
+</head>
+<body style="background-image: url('../../Content/banking3.jpg');">
+    <div class="login-box" style="margin-top:20px;" >
+        <img src="~/Content/avatar.png" class="avatar">
+        <h2 style="text-align:center">Change Password</h2>
+        <h5 class="text-danger" style="text-align:center"><p id="message"></p></h5>
+        <h5 class="text-success" style="text-align:center"><p id="successmsg"></p></h5>
+        <form id="ChangePasswordForm" action="" method="post">
+           
+            <input type="password" id="oldPassword"  placeholder="Enter OldPassword..." required/>
+            
+            <input type="password" id="newPassword"  placeholder="Enter NewPassword..." required/>
+          
+            <input type="password" id="confirmPassword" placeholder="Re-enter NewPassword..." required>
+            <input type="submit" style="margin-top:20px;"name="submit" value="Login" id="ChangePass">
+        </form>
+    </div>
+</body>

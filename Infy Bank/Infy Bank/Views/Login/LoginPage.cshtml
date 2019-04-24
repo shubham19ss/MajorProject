@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           
+            $("#login").click(function (e) {
+                e.preventDefault();
+               var Name = $("#Username").val();
+               var password = $("#Password").val();
+               if (Name.length > 0 && password.length > 0) {
+                   $.ajax({
+                       type: 'POST',
+                       url: "http://localhost:53532/Login/Validation",
+                       async: true,
+                       data: { 'Username': Name, 'Password': password },
+                       success: function (response) {
+                          
+                           if (response == "cus")
+                               window.location.href = "http://localhost:53532/Transactions/Transaction";
+                           else if(response=="man" || response=="sta")
+                                     window.location.href = "http://localhost:53532/ManagerStaff/Customer";
+                           else
+                               $("#message").html(response)
+                       },
+
+                       error: function (result) {
+                           //handle any errors      
+                           alert(result)
+                       }
+                   });
+               }
+               else
+               {
+                   $("#message").html("Fill out All Fields!")
+               }
+           });
+
+        }); 
+    </script>
+</head>
+<body>
+    <div class="login-box">
+        <img src="~/Content/avatar.png" class="avatar">
+        <h1>Login Here</h1>
+        <h5 class="text-danger" style="text-align:center"><p id="message"></p></h5>
+        <form id="LoginForm" action="" method="post">
+                <p>Username</p>
+                <input type="text" id="Username" name="username" placeholder="Enter Username" required>
+                <p>Password</p>
+                <input type="password" id="Password" name="password" placeholder="Enter Password" required>
+                <input type="submit" name="submit" value="Login" id="login">
+            </form>
+       
+
+    </div>
+</body>
+</html>
+ 

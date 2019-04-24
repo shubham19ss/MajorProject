@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RaboBank" Class="AccountTableDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=desktop-b3mtsd3\shubham;Initial Catalog=RaboBank;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RaboBankConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AccountTable" Member="AccountTables">
+    <Type Name="AccountTable">
+      <Column Name="AccountNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccountType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DateOpened" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DateEdited" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ClosingDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

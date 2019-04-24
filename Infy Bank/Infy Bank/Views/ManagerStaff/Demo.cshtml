@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout =null;
+}
+<html>
+<head>
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+</head>
+<body>
+<div>
+     <div class="navbar-fixed">
+        <nav class="teal">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Infy Bank</a>
+                    @*<a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>*@
+
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            @Html.ActionLink("Customers", "Cust", "ManagerCustmer")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Accounts", "Account", "ManagerCustmer")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Transactions", "Deposit", "ManagerCustmer")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Logout", "Deposit", "ManagerCustmer")
+                        </li>
+                        <li>
+                            @Html.ActionLink("ChangePassword", "ChangePass", "Login")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+<div>
+<div>
+    <input type="submit" value="Add Customer" id="addcustomer" />
+    <input type="submit" value="Edit Customer" id="editcustomer" />
+    <input type="submit" value="Delete Customer" id="deletecustomer" />
+</div>
+    <div>
+        <form id="customerdetailsform2">
+
+            Customer name:<br>
+            <input type="text" id="Efirstname">
+            <br>
+            Gender:<br>
+             <div class="radio">
+                    <label>
+                      <input type="radio" checked="" value="option1" id="optionsRadios1" name="optradio" style="display:inline-block;"/>Pagos Mensuales
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                      <input type="radio" value="option2" id="optionsRadios2" name="optradio" style="display:inline-block;"/>Monto a solicitar por Cota
+                   </label>
+                </div>
+            
+
+
+            Dob:<br>
+            <input type="text" id="Edob">
+            <br>
+            Address:<br>
+            <input type="text" id="Eaddress">
+            <br>
+            City:<br>
+            <input type="text" id="Ecity">
+            <br>
+            State:<br>
+            <input type="text" id="Estate">
+            <br>
+            Pincode:<br>
+            <input type="text" id="Epincode">
+            <br>
+            Phone number:<br>
+            <input type="text" id="Ephonenumber">
+            <br>
+            Email:<br>
+            <input type="text" id="Eemail">
+            <br><br>
+            <input type="submit" value="Edit" id="button2">
+        </form>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

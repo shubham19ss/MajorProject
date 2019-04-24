@@ -1,0 +1,35 @@
+﻿<div class="navbar-fixed">
+    <nav class="teal">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Infy Bank</a>
+                @*<a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>*@
+
+                <ul class="right hide-on-med-and-down">
+                    @{ 
+                        if (Session["Role"].ToString() != "cus")
+                        {
+                    <li>
+                        @Html.ActionLink("Customers", "Customer", "ManagerStaff")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Accounts", "Accounts", "Accounts")
+                    </li>
+                            }
+                        }
+                    <li>
+                        @Html.ActionLink("Transactions", "Transaction", "Transactions")
+                    </li>
+                   
+                    <li>
+                        @Html.ActionLink("ChangePassword", "ChangePass", "Login")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Logout", "Logout", "Login", new { onclick = "return confirm('Are you sure you want to Logout?');" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

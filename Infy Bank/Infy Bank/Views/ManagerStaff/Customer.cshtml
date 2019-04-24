@@ -1,0 +1,201 @@
+﻿
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+    <link href="~/Content/main.css" rel="stylesheet" />
+<script src="~/Content/Customer.js"></script>  
+<h2 style="text-align:center;color:cornflowerblue;">Customer Details</h2>
+  <div class="container" style="margin-top:50px">
+<div class="align-content-center">
+    <div class="row">
+      <div class="col-md-3">  
+        <input type="submit" class="bg-light"style="border-radius:5px;padding:10px; width:150px;" value="Add Customer" id="addcustomer" /></div>
+        <div class="col-md-3" >
+            <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; width:150px;" value="Edit Customer" id="editcustomer" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; width:150px;" value="Delete Customer" id="deletecustomer" />
+        </div>
+        <div class="col-md-3">
+            <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; width:150px;" value="Show Customers" id="showcustomer" />
+        </div>
+</div><hr/>
+    
+   
+        <div align="center">
+            <form id="Custidformedit" style="background-color:lightcyan;border-radius:10px;width:500px;">
+                <h5 class="text-danger" style="text-align:center;margin-top:5px;"><P id="editmessage"></P></h5>
+                <table>
+                    <tr>
+                        <td>  Enter Customer ID:</td>
+
+                        <td> <input type="text" id="customereditid" required /></td>
+                        <td> <input type="submit" value="submit" class="bg-primary text-light" style="width:100px; border-radius:7px;padding:10px" id="editcustomeridsubmit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div align="center">
+            <form id="Custidformdelete" style="background-color:lightcyan;border-radius:5px;width:500px;">
+                <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="deletemessage"></P></h5>
+                <table>
+                    <tr>
+                        <td>  Enter Customer ID:</td>
+
+                        <td> <input type="text" id="customerdeleteid" required /></td>
+                        <td> <input type="submit" value="submit" class="bg-primary text-light" style="width:100px; border-radius:7px;padding:10px" id="deletecustomeridsubmit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <h3 class="text-success;" style="text-align:center"><p id="Feedback"></p></h3>
+    <div align="center" style="padding:20px;border-radius:5px;">
+        <form id="showcustomerdetails" style="padding:20px;width:800px;border:groove;border-radius:10px;border-color:darkgrey;">
+            <table border="1" id="showtable">
+                <thead>
+                    <tr>
+                        <th>
+                            CustomerId
+                        </th>
+
+                        <th>
+                            CustomerName
+                        </th>
+
+                        <th>
+                            DateofBirth
+                        </th>
+
+
+                        <th>
+                            Phone Number
+                        </th>
+
+
+                        <th>
+                            Email Id
+                        </th>
+
+                        
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </form>
+    </div>
+        <div align="center" style="padding:20px;border-right:5px;">
+            <form id="customerdetailsform1" style="padding:20px;background-color:beige;width:500px;">
+                <h3 align="center">Customer Form</h3>
+                <h4 style="text-align:center;"><p></p></h4>
+                <table>
+                    <tr>
+                        <td>Customer name:</td>
+                        <td><input type="text" id="addfirstname"></td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            Dob:
+                        </td>
+                        <td><input type="date" id="adddob"></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+
+                        <td><input type="text" id="addaddress"></td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td> <input type="text" id="addcity"></td>
+                    </tr>
+                    <tr>
+                        <td>State:</td>
+                        <td> <input type="text" id="addstate"></td>
+                    </tr>
+                    <tr>
+                        <td> Pincode:</td>
+                        <td><input type="text" id="addpincode"></td>
+                    </tr>
+                    <tr>
+                        <td>Phone number:</td>
+                        <td>
+                            <input type="text" id="addphonenumber">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Email:</td>
+                        <td>
+                            <input type="email" id="addemail">
+                        </td>
+                    </tr>
+
+                </table>
+                <input type="submit" class="bg-primary text-center text-light" value="Submit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" id="AddCustomerButton" />
+
+            </form>
+        </div>
+        <div align="center" style="padding:20px;border-right:5px;">
+    <form id="customerdetailsform2"  style="padding:20px;background-color:beige;width:500px;">
+        <h3 align="center">Customer Form</h3>
+        <h4 style="text-align:center;"><p></p></h4>
+        <table>
+            <tr>
+                <td>Customer name:</td>
+                <td><input type="text" id="Efirstname"></td>
+            </tr>
+            <tr>
+
+                <td>
+                    Dob:
+                </td>
+                <td><input type="date" id="Edob"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+
+                <td><input type="text" id="Eaddress"></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td> <input type="text" id="Ecity"></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td> <input type="text" id="Estate"></td>
+            </tr>
+            <tr>
+                <td> Pincode:</td>
+                <td><input type="text" id="Epincode"></td>
+            </tr>
+            <tr>
+                <td>Phone number:</td>
+                <td>
+                    <input type="text" id="Ephonenumber">
+                </td>
+            </tr>
+            <tr>
+                <td> Email:</td>
+                <td>
+                    <input type="email" id="Eemail">
+                </td>
+            </tr>
+
+        </table>
+            <input type="submit" class="bg-primary text-center text-light" value="Edit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" id="editcustomersubmit" />
+       
+    </form>
+            </div>
+            </div>
+    
+        </div>
+
+
+
+
+

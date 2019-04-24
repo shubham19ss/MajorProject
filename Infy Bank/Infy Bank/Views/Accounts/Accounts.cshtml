@@ -1,0 +1,209 @@
+﻿
+@{
+    ViewBag.Title = "Accounts";
+    Layout = "~/Views/shared/_LayoutPage1.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Content/Account.js"></script>
+<h2 style="text-align:center;color:cornflowerblue;">Account Details</h2>
+<div class="container" style="margin-top:50px">
+    <div class="align-content-center">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; width:150px;" value="Add Account" id="addaccountbutton" />
+            </div>
+            <div class="col-md-4">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; width:150px;" value="Edit Account" id="editaccountbutton" />
+            </div>
+            <div class="col-md-4">
+                <input type="submit" class="bg-light" style="border-radius:5px;padding:10px; width:150px;" value="Delete Account" id="deleteaccountbutton" />
+            </div>
+        </div><hr/>
+   
+   <div id="slider">
+    <div align="center">
+        <form id="deleteform" style="background-color:lightcyan;border-radius:5px;width:500px;">
+            <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="deletemessage"></P></h5>
+            <table>
+                <tr>
+                    <td>  Enter Customer ID:</td>
+
+                    <td> <input type="text" id="deleteCid" required /></td>
+                    <td> <input type="submit" value="submit" class="bg-primary text-light" style="width:100px; border-radius:7px;padding:10px" id="deleteaccountidsubmit" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div align="center">
+        <form id="editform" style="background-color:lightcyan;border-radius:5px;width:500px;">
+            <h5 class="text-danger" style="text-align:center;margin-top:10px;"><P id="editmessage"></P></h5>
+            <table>
+                <tr>
+                    <td>  Enter Customer ID:</td>
+
+                    <td> <input type="text" id="editCid" required /></td>
+                    <td> <input type="submit" value="submit" class="bg-primary text-light" style="width:100px; border-radius:7px;padding:10px" id="editaccountidsubmit" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+        <h3 class="text-success;" style="text-align:center"><p id="Feedback"></p></h3>
+        <div align="center" style="padding:20px;border-radius:5px;">
+            <form id="editaccountform" style="padding:20px;width:800px;border:groove;border-radius:10px;border-color:darkgrey;">
+                <table border="1"  id="edittable">
+                    <thead>
+                    <tr>
+                        <th> 
+                            select
+                        </th>
+
+                        <th>
+                            Account Number
+                        </th>
+
+                        <th>
+                            Account Type
+                        </th>
+
+
+                        <th>
+                            Opening Date
+                        </th>
+
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                    </tr>
+</thead>
+                   <tbody>
+
+                   </tbody>
+                </table>
+            </form>
+        </div>
+    <div align="center" style="padding:20px;border-radius:5px;">
+        <form id="deleteaccountform" style="padding:20px;width:800px;border:groove;border-radius:10px;border-color:darkgrey;">
+            <table border="1" >
+                <tr>
+                    <th>
+                        select
+                    </th>
+
+                    <th>
+                        Account Number
+                    </th>
+
+                    <th>
+                        Account Type
+                    </th>
+
+                    <th>
+                        Opening Date
+                    </th>
+
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Amount
+                    </th>
+
+                </tr>
+                `
+                @* Use for loop here to populate the table after hitting the db *@
+
+
+
+            </table>
+        </form>
+        </div>
+    <div align="center" style="border-right:5px;margin-bottom:50px;">
+        <form id="addnewaccount"  style="padding:20px;background-color:beige;width:500px;">
+            <h3 align="center" class="text-success">Add Account Form</h3>
+            <table>
+                <tr>
+                    <td> Enter Customer ID:</td>
+                    <td> <input type="text" id="newcustomerid" required /></td>
+                </tr>
+                <tr>
+                    <td> Account Type:</td>
+                    <td>
+                        <input id="newcostumeraccounttype" list="account" name="newcostumeraccounttype">
+                        <datalist id="account">
+                            <option value="personal">
+                            <option value="joint">
+                        </datalist>
+                    </td>
+
+                <tr>
+                    <td> Date Opened:</td>
+                    <td>  <input type="datetime-local" id="newcustomeropeningdate" required /></td>
+                </tr>
+               
+                 <tr> 
+                     <td>Status:</td>
+                <td><input id= "statuslist" list="status" name="statuslist">
+  <datalist id="status">
+    <option value="CLosed">
+    <option value="Running">
+    <option value="Opened">  
+  </datalist></td>
+                </tr>
+
+
+            </table>
+            <input type="submit" id="newcustomeradd" class="bg-primary text-center text-light" value="Submit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" value="Add" />
+        
+        </form>
+        </div>
+        <div align="center" style="border-right:5px;margin-bottom:50px;">
+            <form id="editchangeaccountform" style="padding:20px;background-color:beige;width:500px;">
+                <h3 align="center" class="text-success">Edit Account Form</h3>
+                <table>
+                    <tr>
+                        <td> Account Type:</td>
+                        <td>
+                            <input id="costumeraccounttype" list="account" name="newcostumeraccounttype">
+                            <datalist id="account">
+                                <option value="personal">
+                                <option value="joint">
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Date Opened:</td>
+                        <td>  <input type="date" id="customeropeningdate" required /></td>
+                    </tr>
+                    <tr>
+                        <td> Closing Date:</td>
+                        <td>  <input type="date" id="customerclosingdate" required /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Status:</td>
+                        <td>
+                            <input id="editstatuslist" list="status" name="statuslist">
+                            <datalist id="status">
+                                <option value="CLosed">
+                                <option value="Running">
+                                <option value="Opened">
+                            </datalist>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" id="editcustomeradd" class="bg-primary text-center text-light" value="Edit" align="center" style="width:150px;border-radius:5px;margin-top:10px;;padding:10px;" />
+            </form>
+        </div>
+    </div>
+ </div>
+</div>
